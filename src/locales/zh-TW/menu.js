@@ -2,6 +2,7 @@ export default {
   'menu.home': '首頁',
   'menu.dashboard': 'Dashboard',
   'menu.dashboard.analysis': '分析頁',
+  'menu.dashboard.newpage': '新页面',
   'menu.dashboard.monitor': '監控頁',
   'menu.dashboard.workplace': '工作臺',
   'menu.form': '表單頁',
