@@ -42,10 +42,16 @@ class LoginPage extends Component {
   handleSubmit = (err, values) => {
     console.log (1)
     const { type } = this.state;
+    // console.log (values)
+    // console.log (err)
+    // console.log (this.state)  //autoLogin: true,type: "account"
+    // console.log (type)//account
+    // console.log (this.props)
     if (!err) {
+      // console.log ('执行')
       const { dispatch } = this.props;
       dispatch({
-        type: 'login/login',
+        type: 'login/login',//传输到src/models/login.js
         payload: {//参数
           ...values,
           type,
@@ -149,6 +155,7 @@ class LoginPage extends Component {
             </a>
           </div>
           <Submit loading={submitting}>
+          {/* 點擊事件 */}
             <FormattedMessage id="app.login.login" />
           </Submit>
           <div className={styles.other}>

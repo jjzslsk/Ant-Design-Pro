@@ -6,7 +6,7 @@ import { getPageQuery } from '@/utils/utils';
 import { reloadAuthorized } from '@/utils/Authorized';
 
 export default {
-  namespace: 'login',
+  namespace: 'login',//命名空间
 
   state: {
     status: undefined,
@@ -15,8 +15,10 @@ export default {
   effects: {
     *login({ payload }, { call, put }) {
       console.log (2)
-      const response = yield call(fakeAccountLogin, payload);
-      yield put({
+      // console.log (call)
+      // console.log (put)
+      const response = yield call(fakeAccountLogin, payload);//调用fakeAccountLogin 获取后台数据 同步  /services/api
+      yield put({//用于触发 action
         type: 'changeLoginStatus',
         payload: response,
       });

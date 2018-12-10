@@ -21,7 +21,7 @@ const codeMessage = {
   503: '服务不可用，服务器暂时过载或维护。',
   504: '网关超时。',
 };
-
+ //返回
 const checkStatus = response => {
   if (response.status >= 200 && response.status < 300) {
     return response;
@@ -63,10 +63,25 @@ const cachedSave = (response, hashcode) => {
  * @param  {object} [option] The options we want to pass to "fetch"
  * @return {object}           An object containing either "data" or "err"
  */
+
+//响应拦截
+
 export default function request(url, option) {
+  console.log (4)
+  console.log (url)
+  console.log (option)
+  let para = {
+    method: "POST",
+    Code: 'Login',
+    Data: JSON.stringify({
+      zhanghao: 'test123',
+      mima: 'test123'
+    })
+  }
   const options = {
     expirys: isAntdPro(),
-    ...option,
+    // ...option,
+    ...para,
   };
   /**
    * Produce fingerprints based on url and parameters
@@ -118,7 +133,8 @@ export default function request(url, option) {
       sessionStorage.removeItem(`${hashcode}:timestamp`);
     }
   }
-  return fetch(url, newOptions)
+  console.log ('newOptions数据:',newOptions)
+  return fetch(url, newOptions)//执行方法，获取数据
     .then(checkStatus)
     .then(response => cachedSave(response, hashcode))
     .then(response => {

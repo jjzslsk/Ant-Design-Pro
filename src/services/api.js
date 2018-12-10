@@ -105,7 +105,7 @@ export async function updateFakeList(params) {
 
 export async function fakeAccountLogin(params) {
   console.log (3)
-  return request('/api/login/account', {
+  return request('/api/login/account', {//调用src/utils/request文件中fetch方法向后台发送请求
     method: 'POST',
     body: params,
   });
